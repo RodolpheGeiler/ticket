@@ -1,0 +1,22 @@
+<?php
+Class Ajoutcompte extends CI_Model
+{
+ function ajoutcompte($username, $password, $confpassword, $email, $autorisation)
+ {
+
+  if ($confpassword == $password) {
+   $data = array (
+      'users_name' => $username,
+      'users_password' => md5($password),
+      'users_mail' => $email,
+      'grades_id' => $autorisation
+    );
+   $this -> db -> insert('Users');
+   }
+   else
+   {
+     return false;
+   }
+ }
+}
+?>
