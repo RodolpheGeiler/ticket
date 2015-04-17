@@ -2,7 +2,7 @@
 class modifticket extends CI_Controller {
   function __construct() {
     parent::__construct();
-    $this->load->model('ajoutcompte');
+    $this->load->model('requetes');
   }
   function index()
   {
@@ -17,12 +17,12 @@ class modifticket extends CI_Controller {
         );
 
     // Transfering Data To Model
-      $this->ajoutcompte->form_update("tickets_id", "Tickets", $data, $tid);
+      $this->requetes->form_update("tickets_id", "Tickets", $data, $tid);
 
      $session_data = $this->session->userdata('logged_in');
      $data['username'] = $session_data['username'];
-     $data['result_display'] = $this->ajoutcompte->get_all_where('Tickets', 'Users', '1');
-     $data['closed'] = $this->ajoutcompte->get_all_where('Tickets', 'Users', '4');
+     $data['result_display'] = $this->requetes->get_all_where('Tickets', 'Utilisateurs', '1');
+     $data['closed'] = $this->requetes->get_all_where('Tickets', 'Utilisateurs', '4');
      $data['grade'] = $session_data['grade'];
      $this->load->helper('form');
      $this->load->view('header_view', $data);

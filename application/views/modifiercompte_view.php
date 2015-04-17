@@ -32,25 +32,25 @@
                                     foreach ($result_display as $key => $value) {
                                          ?>
                                         <tr>
-                                            <td><?php echo $value->users_id ?></td>
-                                            <td><?php echo $value->users_nom ?></td>
+                                            <td><?php echo $value->utilisateurs_id ?></td>
+                                            <td><?php echo $value->utilisateurs_nom ?></td>
                                             <td><?php 
                                                 echo form_open('modifcompte');
-                                                echo form_hidden('uid', ''.$value->users_id.'');
-                                            if ($value->users_id  == $id) {
-                                                echo form_dropdown('autorisation', array('1' => 'Administrateur','2' => 'Operateur'), $value->grades_id, 'class="form-control" disabled'); 
+                                                echo form_hidden('uid', ''.$value->utilisateurs_id.'');
+                                            if ($value->utilisateurs_id  == $id) {
+                                                echo form_dropdown('autorisation', array('1' => 'Administrateur','2' => 'Operateur'), $value->utilisateurs_grade, 'class="form-control" disabled'); 
                                             } else {
-                                                echo form_dropdown('autorisation', array('1' => 'Administrateur','2' => 'Operateur'), $value->grades_id, 'class="form-control"'); 
+                                                echo form_dropdown('autorisation', array('1' => 'Administrateur','2' => 'Operateur'), $value->utilisateurs_grade, 'class="form-control"'); 
                                             }?></td>
                                             <td><?php 
                                                 echo form_open('modifcompte');
-                                                echo form_hidden('uid', ''.$value->users_id.'');
-                                            if ($value->users_id  == $id) {
-                                                echo form_input(array('value' => $value->users_mail, 'class'=> 'form-control','id' => 'email', 'name' => 'email', 'readonly'=>'readonly'));
+                                                echo form_hidden('uid', ''.$value->utilisateurs_id.'');
+                                            if ($value->utilisateurs_id  == $id) {
+                                                echo form_input(array('value' => $value->utilisateurs_mail, 'class'=> 'form-control','id' => 'email', 'name' => 'email', 'readonly'=>'readonly'));
                                             } else {
-                                                echo form_input(array('value' => $value->users_mail, 'class'=> 'form-control','id' => 'email', 'name' => 'email'));
+                                                echo form_input(array('value' => $value->utilisateurs_mail, 'class'=> 'form-control','id' => 'email', 'name' => 'email'));
                                             }?></td>
-                                            <td><?php echo $value->users_password ?></td>
+                                            <td><?php echo $value->utilisateurs_password ?></td>
                                             <td><?php 
                                             if ($grade == "1") {
                                                 echo form_submit(array('class'=> 'form-control btn btn-default','id' => 'submit', 'value' => 'Valider'));
@@ -58,8 +58,8 @@
                                             }?></td>
                                             <td><?php
                                             echo form_open('delcompte');
-                                            echo form_hidden('uid', ''.$value->users_id.'');
-                                            if ($value->grades_id == "2") {
+                                            echo form_hidden('uid', ''.$value->utilisateurs_id.'');
+                                            if ($value->utilisateurs_grade == "2") {
                                                 echo form_submit(array('class'=> 'form-control btn btn-danger','id' => 'submit', 'value' => 'DEL'));
                                             }
                                             echo form_close();

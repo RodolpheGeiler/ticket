@@ -22,13 +22,13 @@
 
                             <div class="form-group">
                                 <?php
-                                $reclamations = array();
-                                foreach ($reclamation_infos as $value) {
-                                   $reclamations[$value->reclamation_id] = ''.$value->reclamation_titre.' - ID: '.$value->reclamation_id.'';
+                                $reclamationss = array();
+                                foreach ($reclamations_infos as $value) {
+                                   $reclamationss[$value->reclamations_id] = ''.$value->reclamations_titre.' - ID: '.$value->reclamations_id.'';
                                 }
                                     echo form_label('Titre de la réclamation de base');
                                     echo form_error('Title');
-                                    echo form_dropdown('title', $reclamations, '', 'class="form-control"');
+                                    echo form_dropdown('title', $reclamationss, '', 'class="form-control"');
                                  ?>
                             </div>
 
@@ -64,7 +64,7 @@
                                 <?php
                                 $techniciens = array();
                                 foreach ($result_display as $value) {
-                                   $techniciens[$value->users_id] = $value->users_nom;
+                                   $techniciens[$value->utilisateurs_id] = $value->utilisateurs_nom;
                                 }
                                     echo form_label('Technicien');
                                     echo form_error('technicien');

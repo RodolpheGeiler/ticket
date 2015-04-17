@@ -2,7 +2,7 @@
 class modifself extends CI_Controller {
   function __construct() {
     parent::__construct();
-    $this->load->model('ajoutcompte');
+    $this->load->model('requetes');
     $this->load->model('user','',TRUE);
   }
   function index()
@@ -20,7 +20,7 @@ class modifself extends CI_Controller {
      $this->load->helper('form');
      $session_data = $this->session->userdata('logged_in');
      $data['username'] = $session_data['username'];
-     $result = $this->ajoutcompte->get_all_where('Users', 'Tickets', '4');
+     $result = $this->requetes->get_all_where('Utilisateurs', 'Tickets', '4');
      $data['result_display'] = $result;
      $data['grade'] = $session_data['grade'];
      $data['email'] = $session_data['email'];
@@ -33,13 +33,13 @@ class modifself extends CI_Controller {
       $uid = $this->input->post('uid');
       $data = array(
         'users_modified' => strftime("%F %T"),
-        'users_mail' => $this->input->post('email')
+        'utilisateurs_mail' => $this->input->post('email')
       );
       if ($this->input->post('newpass')) {
-        $data['users_password'] = (MD5($this->input->post('newpass')));
+        $data['utilisateurs_password'] = (MD5($this->input->post('newpass')));
       }
     // Transfering Data To Model
-      $this->ajoutcompte->form_update("users_id", "Users", $data, $uid);
+      $this->requetes->form_update("utilisateurs_id", "Utilisateurs", $data, $uid);
 
      redirect('home', 'refresh');
     }

@@ -2,7 +2,7 @@
 class addcompte extends CI_Controller {
   function __construct() {
     parent::__construct();
-    $this->load->model('ajoutcompte');
+    $this->load->model('requetes');
   }
   function index()
   {
@@ -24,7 +24,7 @@ class addcompte extends CI_Controller {
      $data['grade'] = $session_data['grade'];
      $this->load->view('header_view', $data);
      $this->load->view('side_view');
-     $this->load->view('ajoutcompte_view', $data);
+     $this->load->view('requetes_view', $data);
      $this->load->view('footer_view', $data);
     }
     else
@@ -36,19 +36,19 @@ class addcompte extends CI_Controller {
       }
     // Setting Values For Tabel Columns
       $data = array(
-        'users_nom' => $this->input->post('dname'),
-        'users_mail' => $this->input->post('demail'),
-        'grades_id' => $auto,
+        'utilisateurs_nom' => $this->input->post('dname'),
+        'utilisateurs_mail' => $this->input->post('demail'),
+        'utilisateurs_grade' => $auto,
         'users_created' => strftime("%F %T"),
         'users_modified' => strftime("%F %T"),
-        'users_password' => (MD5($this->input->post('dpass')))
+        'utilisateurs_password' => (MD5($this->input->post('dpass')))
         );
     // Transfering Data To Model
-      $this->ajoutcompte->form_insert("Users", $data);
+      $this->requetes->form_insert("Utilisateurs", $data);
     // Loading View
      $session_data = $this->session->userdata('logged_in');
      $data['username'] = $session_data['username'];
-     $result = $this->ajoutcompte->get_all_table('Users');
+     $result = $this->requetes->get_all_table('Utilisateurs');
      $data['result_display'] = $result;
      $data['grade'] = $session_data['grade'];
      $data['id'] = $session_data['id'];

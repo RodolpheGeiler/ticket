@@ -2,7 +2,7 @@
 class addticket extends CI_Controller {
   function __construct() {
     parent::__construct();
-    $this->load->model('ajoutcompte');
+    $this->load->model('requetes');
   }
   function index()
   {
@@ -18,18 +18,18 @@ class addticket extends CI_Controller {
      $data['username'] = $session_data['username'];
      $data['grade'] = $session_data['grade'];
      $data['id'] = $session_data['id'];
-     $result = $this->ajoutcompte->get_column("users_nom, users_id", "Users");
+     $result = $this->requetes->get_column("utilisateurs_nom, utilisateurs_id", "Utilisateurs");
      $data['result_display'] = $result;
-     $result = $this->ajoutcompte->get_column("reclamation_id, reclamation_titre", "Reclamation");
-     $data['reclamation_infos'] = $result;
+     $result = $this->requetes->get_column("reclamations_id, reclamations_titre", "Reclamations");
+     $data['reclamations_infos'] = $result;
      $this->load->view('header_view', $data);
      $this->load->view('side_view');
      $this->load->view('newticket_view', $data);
      $this->load->view('footer_view', $data);
     } else {
-    $titles = $this->ajoutcompte->get_column_where('reclamation_titre', 'Reclamation', 'reclamation_id = '.$this->input->post('title').'');
+    $titles = $this->requetes->get_column_where('reclamations_titre', 'Reclamations', 'reclamations_id = '.$this->input->post('title').'');
     foreach ($titles as $value) {
-      $title = $value->reclamation_titre;
+      $title = $value->reclamations_titre;
     }
     // Setting Values For Tabel Columns
       $data = array(
@@ -37,24 +37,24 @@ class addticket extends CI_Controller {
         'tickets_priorite' => $this->input->post('priorite'),
         'tickets_status' => $this->input->post('statut'),
         'tickets_description' => $this->input->post('description'),
-        'users_id' => $this->input->post('technicien'),
-        'reclamation_id' => $this->input->post('title'),
+        'utilisateurs_id' => $this->input->post('technicien'),
+        'reclamations_id' => $this->input->post('title'),
         'tickets_type' => $this->input->post('type'),
         'tickets_date_ajout' => strftime("%F %T"),
         'tickets_date_modification' => strftime("%F %T")
         );
     // Transfering Data To Model
-      $this->ajoutcompte->form_insert('Tickets', $data);
+      $this->requetes->form_insert('Tickets', $data);
     // Loading View
      $this->load->helper('form');
      $session_data = $this->session->userdata('logged_in');
      $data['username'] = $session_data['username'];
      $data['grade'] = $session_data['grade'];
      $data['id'] = $session_data['id'];
-     $result = $this->ajoutcompte->get_column("users_nom, users_id", "Users");
+     $result = $this->requetes->get_column("utilisateurs_nom, utilisateurs_id", "Utilisateurs");
      $data['result_display'] = $result;
-     $result = $this->ajoutcompte->get_column("reclamation_id, reclamation_titre", "Reclamation");
-     $data['reclamation_infos'] = $result;
+     $result = $this->requetes->get_column("reclamations_id, reclamations_titre", "Reclamations");
+     $data['reclamations_infos'] = $result;
      $this->load->view('header_view', $data);
      $this->load->view('side_view');
      $this->load->view('newticket_view', $data);

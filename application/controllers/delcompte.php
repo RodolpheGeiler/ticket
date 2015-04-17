@@ -2,18 +2,18 @@
 class delcompte extends CI_Controller {
   function __construct() {
     parent::__construct();
-    $this->load->model('ajoutcompte');
+    $this->load->model('requetes');
   }
   function index()
   {
 
     $uid = $this->input->post('uid');
 
-    $this->ajoutcompte->del_user($uid);
+    $this->requetes->del_user($uid);
 
      $session_data = $this->session->userdata('logged_in');
      $data['username'] = $session_data['username'];
-     $result = $this->ajoutcompte->get_all_table('Users');
+     $result = $this->requetes->get_all_table('Utilisateurs');
      $data['result_display'] = $result;
      $data['grade'] = $session_data['grade'];
      $data['id'] = $session_data['id'];

@@ -54,7 +54,7 @@
                                                 echo $value->tickets_priorite;
                                             }?></td>
                                             <td><?php echo $value->clients_societe ?></td>
-                                            <td><?php echo $value->users_nom ?></td>
+                                            <td><?php echo $value->utilisateurs_nom ?></td>
                                             <td><?php echo form_dropdown('tickets_type', array('autres' => 'Autres','transporteur' => 'Transporteur','produits' => 'Produits'), $value->tickets_type, 'class="form-control"');?></td>
                                             <td><button type="button" class="form-control btn btn-success" data-toggle="modal" data-target="#Modal<?php echo $value->tickets_id ?>">Details</button></td>
                                             <td><?php 
@@ -76,7 +76,7 @@
                                                 <h4>Dates:</h4>
                                                 <p><?php echo 'Creation: '.$value->tickets_date_ajout.' - Derniere modification: '.$value->tickets_date_modification.'' ?></p>
                                                 <h4>Description par le client:</h4>
-                                                <p><?php echo $value->reclamation_description ?></p>
+                                                <p><?php echo $value->reclamations_description ?></p>
                                                 <h4>Commentaire du technicien:</h4>
                                                 <p>
                                                     <?php 
@@ -161,7 +161,7 @@
                                             <td><?php echo $value->commandes_id ?></td>
                                             <td><?php echo $value->tickets_priorite ?></td>
                                             <td><?php echo $value->clients_societe ?></td>
-                                            <td><?php echo $value->users_nom ?></td>
+                                            <td><?php echo $value->utilisateurs_nom ?></td>
                                             <td><button type="button" class="form-control btn btn-danger" disabled>Details</button></td>
                                             <td><?php 
                                             if ($grade == "1") {

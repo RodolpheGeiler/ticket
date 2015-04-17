@@ -19,7 +19,7 @@
                                 <?php echo anchor(site_url("home/modifiercompte"),"Gestion des comptes"); ?>
                             </li>
                             <li>
-                                <?php echo anchor(site_url("home/ajoutcompte"),"Creer un compte"); ?>
+                                <?php echo anchor(site_url("home/requetes"),"Creer un compte"); ?>
                             </li>
                         </ul>
                     </li>

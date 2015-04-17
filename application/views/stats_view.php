@@ -19,17 +19,17 @@
                 <div class="col-lg-6">
                         <div class="panel panel-red">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-long-arrow-right"></i> Nombre de reclamations par mois</h3>
+                                <h3 class="panel-title"><i class="fa fa-long-arrow-right"></i> Nombre de reclamationss par mois</h3>
                             </div>
                             <div class="panel-body">
-                                <div id="reclamation-line"></div>
+                                <div id="reclamations-line"></div>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="panel panel-yellow">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-long-arrow-right"></i> Type de reclamation</h3>
+                                <h3 class="panel-title"><i class="fa fa-long-arrow-right"></i> Type de reclamations</h3>
                             </div>
                             <div class="panel-body">
                                 <div id="type-donut"></div>
@@ -66,14 +66,14 @@
 Morris.Donut({
   element: 'type-donut',
   data: [
-    {label: "Probleme produit", value: <?php echo $reclamation_type['produits']; ?>},
-    {label: "Probleme transporteur", value: <?php echo $reclamation_type['transporteur']; ?>},
-    {label: "Autres problemes", value: <?php echo $reclamation_type['autres']; ?>}
+    {label: "Probleme produit", value: <?php echo $reclamations_type['produits']; ?>},
+    {label: "Probleme transporteur", value: <?php echo $reclamations_type['transporteur']; ?>},
+    {label: "Autres problemes", value: <?php echo $reclamations_type['autres']; ?>}
   ]
 });
 
 Morris.Line({
-  element: 'reclamation-line',
+  element: 'reclamations-line',
   data: [
     { y: '2015-05', a: 0},
     { y: '2015-06', a: 20},
