@@ -1,11 +1,11 @@
 <?php
 class modifself extends CI_Controller {
-  function __construct() {
+  public function __construct() {
     parent::__construct();
     $this->load->model('requetes');
     $this->load->model('user','',TRUE);
   }
-  function index()
+  public function index()
   {
   // Including Validation Library
     $this->load->library('form_validation');
@@ -32,11 +32,11 @@ class modifself extends CI_Controller {
     } else {
       $uid = $this->input->post('uid');
       $data = array(
-        'users_modified' => strftime("%F %T"),
+        'utilisateurs_modifie' => strftime("%F %T"),
         'utilisateurs_mail' => $this->input->post('email')
       );
       if ($this->input->post('newpass')) {
-        $data['utilisateurs_password'] = (MD5($this->input->post('newpass')));
+        $data['utilisateurs_motdepasse'] = (MD5($this->input->post('newpass')));
       }
     // Transfering Data To Model
       $this->requetes->form_update("utilisateurs_id", "Utilisateurs", $data, $uid);
@@ -45,7 +45,7 @@ class modifself extends CI_Controller {
     }
   }
 
-   function check_database($oldpass)
+   public function check_database($oldpass)
  {
    //Field validation succeeded.  Validate against database
    $username = $this->input->post('username');

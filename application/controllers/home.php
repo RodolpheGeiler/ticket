@@ -2,13 +2,13 @@
 session_start(); //we need to call PHP's session object to access it through CI
 class Home extends CI_Controller {
 
- function __construct()
+ public function __construct()
  {
    parent::__construct();
    $this->load->model('requetes');
  }
 
- function index()
+ public function index()
  {
    if($this->session->userdata('logged_in'))
    {
@@ -31,7 +31,7 @@ class Home extends CI_Controller {
    }
  }
 
-  function stats()
+  public function stats()
  {
    if($this->session->userdata('logged_in'))
    {
@@ -50,7 +50,7 @@ class Home extends CI_Controller {
    }
  }
 
-   function compte()
+   public function compte()
  {
    if($this->session->userdata('logged_in'))
    {
@@ -74,7 +74,7 @@ class Home extends CI_Controller {
    }
  }
 
-   function requetes()
+   public function ajoutcompte()
  {
    if($this->session->userdata('logged_in'))
    {
@@ -84,7 +84,7 @@ class Home extends CI_Controller {
      $data['grade'] = $session_data['grade'];
      $this->load->view('header_view', $data);
      $this->load->view('side_view');
-     $this->load->view('requetes_view', $data);
+     $this->load->view('ajoutcompte_view', $data);
      $this->load->view('footer_view', $data);
    }
    else
@@ -94,7 +94,7 @@ class Home extends CI_Controller {
    }
  }
 
-   function modifiercompte()
+   public function modifiercompte()
  {
    if($this->session->userdata('logged_in'))
    {
@@ -117,7 +117,7 @@ class Home extends CI_Controller {
    }
  }
 
-   function newticket()
+   public function newticket()
  {
    if($this->session->userdata('logged_in'))
    {
@@ -142,7 +142,7 @@ class Home extends CI_Controller {
    }
  }
 
- function logout()
+ public function logout()
  {
    $this->session->unset_userdata('logged_in');
    session_destroy();

@@ -2,13 +2,13 @@
 
 class VerifyLogin extends CI_Controller {
 
- function __construct()
+ public function __construct()
  {
    parent::__construct();
    $this->load->model('user','',TRUE);
  }
 
- function index()
+ public function index()
  {
    //This method will have the credentials validation
    $this->load->library('form_validation');
@@ -32,7 +32,7 @@ class VerifyLogin extends CI_Controller {
 
  }
 
- function check_database($password)
+ public function check_database($password)
  {
    //Field validation succeeded.  Validate against database
    $username = $this->input->post('utilisateurs_nom');

@@ -50,7 +50,7 @@
                                             } else {
                                                 echo form_input(array('value' => $value->utilisateurs_mail, 'class'=> 'form-control','id' => 'email', 'name' => 'email'));
                                             }?></td>
-                                            <td><?php echo $value->utilisateurs_password ?></td>
+                                            <td><?php echo $value->utilisateurs_motdepasse ?></td>
                                             <td><?php 
                                             if ($grade == "1") {
                                                 echo form_submit(array('class'=> 'form-control btn btn-default','id' => 'submit', 'value' => 'Valider'));

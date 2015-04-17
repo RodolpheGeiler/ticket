@@ -1,10 +1,11 @@
 <?php
 class addcompte extends CI_Controller {
-  function __construct() {
+  public function __construct() {
     parent::__construct();
     $this->load->model('requetes');
   }
-  function index()
+
+  public function index()
   {
   // Including Validation Library
     $this->load->library('form_validation');
@@ -24,7 +25,7 @@ class addcompte extends CI_Controller {
      $data['grade'] = $session_data['grade'];
      $this->load->view('header_view', $data);
      $this->load->view('side_view');
-     $this->load->view('requetes_view', $data);
+     $this->load->view('ajoutcompte_view', $data);
      $this->load->view('footer_view', $data);
     }
     else
@@ -39,9 +40,9 @@ class addcompte extends CI_Controller {
         'utilisateurs_nom' => $this->input->post('dname'),
         'utilisateurs_mail' => $this->input->post('demail'),
         'utilisateurs_grade' => $auto,
-        'users_created' => strftime("%F %T"),
-        'users_modified' => strftime("%F %T"),
-        'utilisateurs_password' => (MD5($this->input->post('dpass')))
+        'utilisateurs_creation' => strftime("%F %T"),
+        'utilisateurs_modifie' => strftime("%F %T"),
+        'utilisateurs_motdepasse' => (MD5($this->input->post('dpass')))
         );
     // Transfering Data To Model
       $this->requetes->form_insert("Utilisateurs", $data);

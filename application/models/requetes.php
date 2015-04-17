@@ -1,14 +1,14 @@
 <?php
 class requetes extends CI_Model{
-	function __construct() {
+	public function __construct() {
 		parent::__construct();
 	}
 
-	function form_insert($table, $data){
+	public function form_insert($table, $data){
 		$this->db->insert($table, $data);
 	}
 
-	function get_all_where($table, $join, $statid){
+	public function get_all_where($table, $join, $statid){
 		$this->db->select('*');
 		$this->db->from($table);
 		$this->db->join($join, ''.$table.'.utilisateurs_id = '.$join.'.utilisateurs_id', 'left');
@@ -24,24 +24,24 @@ class requetes extends CI_Model{
 		$query = $this->db->get();
 		return $query->result();
 	}
-	function get_all_table($table){
+	public function get_all_table($table){
 		$this->db->select('*');
 		$this->db->from($table);
 		$query = $this->db->get();
 		return $query->result();
 	}
 
-	function del_user($uid){
+	public function del_user($uid){
 		$this->db->delete('Utilisateurs', array('utilisateurs_id' => $uid)); 
 	}
 
-	function get_column($col, $table){
+	public function get_column($col, $table){
 		$this->db->select($col);
 		$query = $this->db->get($table);
 		return $query->result();
 	}
 
-	function get_count($type){
+	public function get_count($type){
 		$this->db->select('*');
 		$this->db->from('Tickets');
 		$this->db->where('tickets_type', $type);
@@ -50,13 +50,13 @@ class requetes extends CI_Model{
 	}
 
 
-	function get_column_where($col, $table, $where){
+	public function get_column_where($col, $table, $where){
 		$this->db->select($col);
 		$this->db->where($where);
 		$query = $this->db->get($table);
 		return $query->result();
 	}
-	function form_update($col, $table, $data, $tid){
+	public function form_update($col, $table, $data, $tid){
 		$this->db->where($col, $tid);
 		$this->db->update($table, $data); 
 	}

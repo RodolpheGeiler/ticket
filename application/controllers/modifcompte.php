@@ -1,17 +1,17 @@
 <?php
 class modifcompte extends CI_Controller {
-  function __construct() {
+  public function __construct() {
     parent::__construct();
     $this->load->model('requetes');
   }
-  function index()
+  public function index()
   {
 
     $tid = $this->input->post('uid');
     // Setting Values For Tabel Columns
       $data = array(
         'utilisateurs_grade' => $this->input->post('autorisation'),
-        'users_modified' => strftime("%F %T"),
+        'utilisateurs_modifie' => strftime("%F %T"),
         'utilisateurs_mail' => $this->input->post('email')
         );
 

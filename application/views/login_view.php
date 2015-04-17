@@ -7,8 +7,8 @@
                 <!-- Page Heading -->
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">
-                            Login
+                        <h1 style="margin-left: 35%;" class="page-header">
+                            Connexion
                         </h1>
                     </div>
                 </div>
@@ -40,7 +40,6 @@
                             echo form_close();
                         ?>
                     </fieldset>
-                    </form>
                 </div>
             </div>
         </div>

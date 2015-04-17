@@ -1,4 +1,4 @@
-<!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+<!-- Menu gauche -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                    	<li>
@@ -19,7 +19,7 @@
                                 <?php echo anchor(site_url("home/modifiercompte"),"Gestion des comptes"); ?>
                             </li>
                             <li>
-                                <?php echo anchor(site_url("home/requetes"),"Creer un compte"); ?>
+                                <?php echo anchor(site_url("home/ajoutcompte"),"Creer un compte"); ?>
                             </li>
                         </ul>
                     </li>
@@ -28,4 +28,4 @@
                     </li>
                 </ul>
             </div>
-            <!-- /.navbar-collapse -->
+            <!-- /.Menu gauche -->

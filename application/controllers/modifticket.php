@@ -1,10 +1,10 @@
 <?php
 class modifticket extends CI_Controller {
-  function __construct() {
+  public function __construct() {
     parent::__construct();
     $this->load->model('requetes');
   }
-  function index()
+  public function index()
   {
 
     $tid = $this->input->post('tid');
