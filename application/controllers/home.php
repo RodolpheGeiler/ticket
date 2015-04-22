@@ -130,6 +130,7 @@ class Home extends CI_Controller {
      $data['result_display'] = $result;
      $result = $this->requetes->get_column("reclamations_id, reclamations_titre", "Reclamations");
      $data['reclamations_infos'] = $result;
+     $data['reclamations_liste'] = $this->requetes->get_last_reclamations();
      $this->load->view('header_view', $data);
      $this->load->view('side_view');
      $this->load->view('newticket_view', $data);

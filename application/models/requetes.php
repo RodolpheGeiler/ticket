@@ -24,6 +24,17 @@ class requetes extends CI_Model{
 		$query = $this->db->get();
 		return $query->result();
 	}
+
+
+    public function get_last_reclamations(){
+        $this->db->select('*');
+        $this->db->join('Clients', 'Reclamations.clients_id = Clients.clients_id', 'left');
+        $this->db->from('Reclamations', 5);
+        $this->db->order_by("reclamations_date", "desc");
+        $query = $this->db->get();
+        return $query->result();
+    }
+
 	public function get_all_table($table){
 		$this->db->select('*');
 		$this->db->from($table);

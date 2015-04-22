@@ -1,3 +1,78 @@
+
+
+<div id="page-wrapper">
+
+    <div class="container-fluid">
+
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    Dernieres reclamations
+                </h1>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Titre</th>
+                            <th>Commande</th>
+                            <th>Client</th>
+                            <th>Description</th>
+                            <th>Date</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php
+                        foreach ($reclamations_liste as $key => $value) {
+                            ?>
+                            <tr>
+                                <td><?php echo $value->reclamations_id ?></td>
+                                <td><?php echo $value->reclamations_titre ?></td>
+                                <td><?php echo $value->commandes_id ?></td>
+                                <td><?php echo $value->clients_societe ?></td>
+                                <td><button type="button" class="form-control btn btn-success" data-toggle="modal" data-target="#Modal<?php echo $value->reclamations_id ?>">Details</button></td>
+                                <td><?php echo $value->reclamations_date ?></td>
+                            </tr>
+                            <div class="modal fade" id="Modal<?php echo $value->reclamations_id ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <h3 class="modal-title" id="myModalLabel">Description</h3>
+                                        </div>
+                                        <div class="modal-body">
+                                            <h4>Description du client:</h4>
+                                            <p><?php echo $value->reclamations_description ?></p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php
+                        }
+                        ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
+
+    </div>
+    <!-- /.container-fluid -->
+
+</div>
+<!-- /#page-wrapper -->
+
         <div id="page-wrapper">
 
             <div class="container-fluid">
